@@ -3,10 +3,45 @@
   --secondary: #1e293b;
 }
 
-h1 {
+/* h1 {
   color: var(--primary);
-}
+} */
 
 button {
   background: var(--primary);
+  width: 108%;
+  height: 45px;
+}
+
+.signup-container {
+  width: 350px;
+  margin: 50px auto;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+}
+
+.heading-section {
+  text-align: center;
+  margin-bottom: 25px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.heading-section h1 {
+  font-size: 34px;
+  margin-bottom: 5px;
+}
+
+.heading-section p,
+.heading-section h3 {
+  margin: 0;
+  color: gray;
 }

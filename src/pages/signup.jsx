@@ -25,6 +25,10 @@ function Signup() {
 
   const handleSignup = async () => {
     try {
+      if (!name || !email || !password) {
+        alert("All fields are required");
+        return;
+      }
       const response = await axios.post(
         "http://localhost:9000/api/signup",
         {
@@ -45,34 +49,48 @@ function Signup() {
 
 
   return (
-    <div>
-      <div>
-        <input
-        type="text"
-        placeholder="Enter Name"
-        onChange={(e) => setName(e.target.value)}
-      />
+    <div className="signup-container" >
+
+      <div className="heading-section">
+        <h1>Welcome to ShopSphere</h1>
       </div>
 
       <div>
-        <input
-        type="email"
-        placeholder="Enter Email"
-        onChange={(e) => setEmail(e.target.value)}
-      />
-
-      </div>
-      <div>
-        <input
-        type="password"
-        placeholder="Enter Password"
-        onChange={(e) => setPassword(e.target.value)}
-      />
+        <h3>Sign up to start shopping</h3>
       </div>
 
-      <button onClick={handleSignup}>
-        Signup
-      </button>
+      <form>
+        <div className="form-group" >
+          <input
+            type="text"
+            placeholder="Full Name"
+            onChange={(e) => setName(e.target.value)}
+          />
+        </div>
+
+        <div className="form-group">
+          <input
+            type="email"
+            placeholder="Email Address"
+            onChange={(e) => setEmail(e.target.value)}
+          />
+
+        </div>
+        <div className="form-group">
+          <input
+            type="password"
+            placeholder="Password"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+
+        <button type="button" onClick={handleSignup}>
+          Signup
+        </button>
+        <p>
+          Already registered? <a href="/login">Login</a>
+        </p>
+      </form>
     </div>
   );
 }
