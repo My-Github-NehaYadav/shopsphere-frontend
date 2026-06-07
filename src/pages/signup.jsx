@@ -1,20 +1,7 @@
 import "./Signup.css";
 import { useState } from "react";
 import axios from "axios";
-
-// function Signup() {
-//   console.log("Signup Render Ho Raha Hai");
-//   return (
-//     <div>
-//       <h1>ShopSphere</h1>
-
-//       <input placeholder="Enter Name" />
-//       <input placeholder="Enter Email" />
-//       <input placeholder="Enter Password" />
-//       <button>Signup</button>
-//     </div>
-//   );
-// }
+import { Link } from "react-router-dom";
 
 
 function Signup() {
