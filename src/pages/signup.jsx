@@ -24,9 +24,7 @@ function Signup() {
           password,
         }
       );
-
-      console.log("pppppppppppppp");
-      console.log(response.data);
+      console.log(response, "response")
       alert("Signup Successful");
     } catch (error) {
       console.log(error);
@@ -76,6 +74,9 @@ function Signup() {
         </button>
         <p>
           Already registered? <a href="/login">Login</a>
+        </p>
+        <p>
+          Continue without login? <Link to="/">Go to Home</Link>
         </p>
       </form>
     </div>
