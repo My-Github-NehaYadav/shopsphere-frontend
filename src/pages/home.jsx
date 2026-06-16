@@ -1,13 +1,27 @@
 import { Link } from "react-router-dom";
 import "./home.css";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 function Home() {
-  const products = [
-    { id: 1, name: "iPhone 15", price: "₹79,999" },
-    { id: 2, name: "Nike Shoes", price: "₹4,999" },
-    { id: 3, name: "Smart Watch", price: "₹2,999" },
-    { id: 4, name: "JavaScript Book", price: "₹599" },
-  ];
+  const [products, setProducts] = useState([]);
+
+  const getProducts = async () => {
+    try {
+      const response = await axios.get(
+        "http://localhost:9000/api/getProduct"
+      );
+
+      setProducts(response.data.data);
+    } catch (error) {
+      console.log("Get Products Error:", error);
+    }
+  };
+
+  useEffect(() => {
+    getProducts();
+  }, []);
+
   return (
     <div className="home-container">
       <div className="navbar">
@@ -48,14 +62,20 @@ function Home() {
 
       <div className="products">
         {products.map((product) => (
-          <div key={product.id} className="product-card">
-            <h3>{product.name}</h3>
-            <p>{product.price}</p>
-            <button>Add to Cart</button>
-          </div>
+          <Link
+            key={product._id}
+            to={`/product/${product._id}`}
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
+            <div className="product-card">
+              <h3>{product.name}</h3>
+              <p>₹{product.price}</p>
+              <p>{product.category}</p>
+              <button>Add to Cart</button>
+            </div>
+          </Link>
         ))}
       </div>
-
     </div>
   );
 }
