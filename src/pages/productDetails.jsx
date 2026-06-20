@@ -28,7 +28,7 @@ function ProductDetails() {
   return (
     <div className="product-details">
       <h1>{product.name}</h1>
-      <h2>₹{product.price, product.name}</h2>
+      <h2>₹{product.price}</h2>
       <p>{product.category}</p>
     </div>
   );
